@@ -1,0 +1,34 @@
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.csproj.AssemblyReference.cache
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.AssemblyInfoInputs.cache
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.AssemblyInfo.cs
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.csproj.CoreCompileInputs.cache
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Extracao dados Futebol.exe
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Extracao dados Futebol.deps.json
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Extracao dados Futebol.runtimeconfig.json
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Extracao dados Futebol.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Extracao dados Futebol.pdb
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\WebDriver.Support.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\WebDriver.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\xunit.abstractions.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\xunit.assert.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\xunit.core.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\xunit.execution.dotnet.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.csproj.CopyComplete
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\refint\Extracao dados Futebol.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.pdb
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\Extracao dados Futebol.genruntimeconfig.cache
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\Debug\net7.0\ref\Extracao dados Futebol.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\selenium-manager\linux\selenium-manager
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\selenium-manager\macos\selenium-manager
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\BrowserAutomation.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
