@@ -58,11 +58,14 @@ namespace Extracao_dados_Futebol.Services
                         var btnInfoAbre = $@"//html/body/div/div[2]/div/section[1]/table/tbody/tr[{j}]/td[13]/button";
                         //html/body/div/div[2]/div/section[1]/table/tbody/tr[101]/td[13]/button
 
-                        var cliqueAbre = lista[(j / 2)].FindElement(By.XPath(btnInfoAbre));
+
+
+                        int ctt = (j / 2) < 0 ? 1 : (j / 2);
+                        var cliqueAbre = lista[ctt].FindElement(By.XPath(btnInfoAbre));
                         cliqueAbre.Click();
 
                         int ContadorWeekFoot = 0;
-                        var a = (lista[(j / 2)].FindElements(By.XPath(StrWeakFoot)));
+                        var a = (lista[(ctt)].FindElements(By.XPath(StrWeakFoot)));
                         for (int ae = 0; ae < a.Count; ae++)
                         {
                             var b = a[ae].FindElements(By.TagName("svg"));
@@ -82,7 +85,7 @@ namespace Extracao_dados_Futebol.Services
                         }
 
                         int ContadorSkillMoves = 0;
-                        var e = (lista[(j / 2)].FindElements(By.XPath(strSkillMoves)));
+                        var e = (lista[(ctt)].FindElements(By.XPath(strSkillMoves)));
                         for (int ae = 0; ae < a.Count; ae++)
                         {
                             var f = e[ae].FindElements(By.TagName("svg"));
@@ -103,7 +106,7 @@ namespace Extracao_dados_Futebol.Services
 
                         string StrStylesPlus = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]";
                         List<FCStyles> fCStylesPlus = new List<FCStyles>();
-                        var StylesPlus = (lista[(j / 2)].FindElements(By.XPath(StrStylesPlus)));
+                        var StylesPlus = (lista[(ctt)].FindElements(By.XPath(StrStylesPlus)));
                         foreach (var style in StylesPlus)
                         {
                             string sub = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]";
@@ -120,11 +123,11 @@ namespace Extracao_dados_Futebol.Services
 
                         string StrStyles = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]";
                         List<FCStyles> fCStyles = new List<FCStyles>();
-                        var Styles = (lista[(j / 2)].FindElements(By.XPath(StrStyles)));
+                        var Styles = (lista[(ctt)].FindElements(By.XPath(StrStyles)));
                         foreach (var style in Styles)
                         {
                             string listar = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]";
-                            var count = lista[(j / 2)].FindElements(By.XPath(listar));
+                            var count = lista[(ctt)].FindElements(By.XPath(listar));
                             var count2 = count[0].FindElements(By.TagName("div")).Count;
 
                             for (int iLinhas = 1; iLinhas < count2 + 1; iLinhas++)
