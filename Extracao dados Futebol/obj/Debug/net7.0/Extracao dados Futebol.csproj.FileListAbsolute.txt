@@ -24,9 +24,6 @@ C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\obj\De
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\selenium-manager\linux\selenium-manager
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\selenium-manager\macos\selenium-manager
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\selenium-manager\windows\selenium-manager.exe
-C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\BrowserAutomation.dll
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\System.Drawing.Common.dll

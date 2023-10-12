@@ -9,46 +9,13 @@
       "Extracao dados Futebol/1.0.0": {
         "dependencies": {
           "Selenium.Browser.Automation.Helpers": "1.0.3",
-          "Selenium.Support": "4.11.0",
-          "Selenium.WebDriver": "4.12.4",
-          "Selenium.WebDriver.ChromeDriver": "116.0.5845.9600",
-          "xunit": "2.5.0"
+          "Selenium.Support": "4.14.0",
+          "Selenium.WebDriver": "4.14.0",
+          "Selenium.WebDriver.ChromeDriver": "118.0.5993.7000",
+          "xunit": "2.5.1"
         },
         "runtime": {
           "Extracao dados Futebol.dll": {}
-        }
-      },
-      "Microsoft.CSharp/4.5.0": {},
-      "Microsoft.IdentityModel.Abstractions/6.19.0": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll": {
-            "assemblyVersion": "6.19.0.0",
-            "fileVersion": "6.19.0.30603"
-          }
-        }
-      },
-      "Microsoft.IdentityModel.Logging/6.19.0": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "6.19.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {
-            "assemblyVersion": "6.19.0.0",
-            "fileVersion": "6.19.0.30603"
-          }
-        }
-      },
-      "Microsoft.IdentityModel.Tokens/6.19.0": {
-        "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
-          "Microsoft.IdentityModel.Logging": "6.19.0",
-          "System.Security.Cryptography.Cng": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {
-            "assemblyVersion": "6.19.0.0",
-            "fileVersion": "6.19.0.30603"
-          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -182,8 +149,8 @@
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "Selenium.Browser.Automation.Helpers/1.0.3": {
         "dependencies": {
-          "Selenium.Support": "4.11.0",
-          "Selenium.WebDriver": "4.12.4"
+          "Selenium.Support": "4.14.0",
+          "Selenium.WebDriver": "4.14.0"
         },
         "runtime": {
           "lib/BrowserAutomation.dll": {
@@ -192,20 +159,19 @@
           }
         }
       },
-      "Selenium.Support/4.11.0": {
+      "Selenium.Support/4.14.0": {
         "dependencies": {
-          "Selenium.WebDriver": "4.12.4"
+          "Selenium.WebDriver": "4.14.0"
         },
         "runtime": {
-          "lib/net6.0/WebDriver.Support.dll": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
             "assemblyVersion": "4.0.0.0",
             "fileVersion": "4.0.0.0"
           }
         }
       },
-      "Selenium.WebDriver/4.12.4": {
+      "Selenium.WebDriver/4.14.0": {
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "6.19.0",
           "Newtonsoft.Json": "13.0.1",
           "System.Drawing.Common": "7.0.0"
         },
@@ -216,7 +182,7 @@
           }
         }
       },
-      "Selenium.WebDriver.ChromeDriver/116.0.5845.9600": {},
+      "Selenium.WebDriver.ChromeDriver/118.0.5993.7000": {},
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -610,7 +576,21 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.0"
         }
       },
-      "System.Security.Cryptography.Cng/4.5.0": {},
+      "System.Security.Cryptography.Cng/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "System.IO": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Security.Cryptography.Algorithms": "4.3.0",
+          "System.Security.Cryptography.Encoding": "4.3.0",
+          "System.Security.Cryptography.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0"
+        }
+      },
       "System.Security.Cryptography.Csp/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -689,7 +669,7 @@
           "System.Runtime.InteropServices": "4.3.0",
           "System.Runtime.Numerics": "4.3.0",
           "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.Cng": "4.5.0",
+          "System.Security.Cryptography.Cng": "4.3.0",
           "System.Security.Cryptography.Csp": "4.3.0",
           "System.Security.Cryptography.Encoding": "4.3.0",
           "System.Security.Cryptography.OpenSsl": "4.3.0",
@@ -783,11 +763,11 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "xunit/2.5.0": {
+      "xunit/2.5.1": {
         "dependencies": {
-          "xunit.analyzers": "1.2.0",
-          "xunit.assert": "2.5.0",
-          "xunit.core": "2.5.0"
+          "xunit.analyzers": "1.3.0",
+          "xunit.assert": "2.5.1",
+          "xunit.core": "2.5.1"
         }
       },
       "xunit.abstractions/2.0.3": {
@@ -798,45 +778,45 @@
           }
         }
       },
-      "xunit.analyzers/1.2.0": {},
-      "xunit.assert/2.5.0": {
+      "xunit.analyzers/1.3.0": {},
+      "xunit.assert/2.5.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
         },
         "runtime": {
           "lib/netstandard1.1/xunit.assert.dll": {
-            "assemblyVersion": "2.5.0.0",
-            "fileVersion": "2.5.0.0"
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
           }
         }
       },
-      "xunit.core/2.5.0": {
+      "xunit.core/2.5.1": {
         "dependencies": {
-          "xunit.extensibility.core": "2.5.0",
-          "xunit.extensibility.execution": "2.5.0"
+          "xunit.extensibility.core": "2.5.1",
+          "xunit.extensibility.execution": "2.5.1"
         }
       },
-      "xunit.extensibility.core/2.5.0": {
+      "xunit.extensibility.core/2.5.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "xunit.abstractions": "2.0.3"
         },
         "runtime": {
           "lib/netstandard1.1/xunit.core.dll": {
-            "assemblyVersion": "2.5.0.0",
-            "fileVersion": "2.5.0.0"
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
           }
         }
       },
-      "xunit.extensibility.execution/2.5.0": {
+      "xunit.extensibility.execution/2.5.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "xunit.extensibility.core": "2.5.0"
+          "xunit.extensibility.core": "2.5.1"
         },
         "runtime": {
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {
-            "assemblyVersion": "2.5.0.0",
-            "fileVersion": "2.5.0.0"
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
           }
         }
       }
@@ -847,34 +827,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Microsoft.CSharp/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Abstractions/6.19.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-SNDIcIdXeclk8lcwUtZMijCxBZ44krYG9at6kQMuds6I7zkiVvfYwOp394zI8tXFFDXu49Q6XFFTS59Exgw6xA==",
-      "path": "microsoft.identitymodel.abstractions/6.19.0",
-      "hashPath": "microsoft.identitymodel.abstractions.6.19.0.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Logging/6.19.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-773vzDzuwg+v+Jvsa+HOSPAZmMl1KztszdBErBPlXvNxZCvL52FrYlQblI6m1f3Pr9DtQt8jCI0RG6b1MajLgg==",
-      "path": "microsoft.identitymodel.logging/6.19.0",
-      "hashPath": "microsoft.identitymodel.logging.6.19.0.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Tokens/6.19.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-kmEuZo1+Q4CJIprBVOcZQ18to3WUbPaYE9HRAoK0hEhoh8cH0uA8oOOjff4N2gQ/gk79QrAJTbh0RI7vIZU7vA==",
-      "path": "microsoft.identitymodel.tokens/6.19.0",
-      "hashPath": "microsoft.identitymodel.tokens.6.19.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -1037,26 +989,26 @@
       "path": "selenium.browser.automation.helpers/1.0.3",
       "hashPath": "selenium.browser.automation.helpers.1.0.3.nupkg.sha512"
     },
-    "Selenium.Support/4.11.0": {
+    "Selenium.Support/4.14.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PR7ssrG9peQ5AqPSNvOJ846FFOX1wSv5eV3/8zvYwf0jhNx2bEprBZbtYMSWtht+HXtC5xb6atRQLlpKD+FETQ==",
-      "path": "selenium.support/4.11.0",
-      "hashPath": "selenium.support.4.11.0.nupkg.sha512"
+      "sha512": "sha512-Ix4QvIsavMH5O0+hwQ1eow9a/KxCLvPyQTigLLUU0UP7GVUXG4K4uzIIUfTsvqBcc9eW3MMffRz8d72iHodAgA==",
+      "path": "selenium.support/4.14.0",
+      "hashPath": "selenium.support.4.14.0.nupkg.sha512"
     },
-    "Selenium.WebDriver/4.12.4": {
+    "Selenium.WebDriver/4.14.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-t0YucC2p5SKpWHBrWmR1TdJ/pXBoWyRHVRbs+iy4PPvaowl013e2fzCcdi6Kj1xeZcJ2mCh2V1jDggLHe/83+Q==",
-      "path": "selenium.webdriver/4.12.4",
-      "hashPath": "selenium.webdriver.4.12.4.nupkg.sha512"
+      "sha512": "sha512-TQ1JCHdxuac9l4r7yehgvt+5tj6kY5RSfi3RhkEPi/uCp9g/HW1J8CBOOzAu8p5T0ERJbNrGEqYOJu13leZI9Q==",
+      "path": "selenium.webdriver/4.14.0",
+      "hashPath": "selenium.webdriver.4.14.0.nupkg.sha512"
     },
-    "Selenium.WebDriver.ChromeDriver/116.0.5845.9600": {
+    "Selenium.WebDriver.ChromeDriver/118.0.5993.7000": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ip8MRM/uVZxn4leTky/Sa7+Yo648lPzeR98/JCtoknq9heUFw2wMUtxdg7VIeI6RisqVUZ6UyD9/+DgkExNLdg==",
-      "path": "selenium.webdriver.chromedriver/116.0.5845.9600",
-      "hashPath": "selenium.webdriver.chromedriver.116.0.5845.9600.nupkg.sha512"
+      "sha512": "sha512-P+oMf57Rbt2mKr3k2OFijtg+Vm3xHYe147LWQLqB0aumjKuWxoZVZw1+K7rr9KqdGe646kvIVjtQH0+eheCawA==",
+      "path": "selenium.webdriver.chromedriver/118.0.5993.7000",
+      "hashPath": "selenium.webdriver.chromedriver.118.0.5993.7000.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
@@ -1331,12 +1283,12 @@
       "path": "system.security.cryptography.algorithms/4.3.0",
       "hashPath": "system.security.cryptography.algorithms.4.3.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Cng/4.5.0": {
+    "System.Security.Cryptography.Cng/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
-      "path": "system.security.cryptography.cng/4.5.0",
-      "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
+      "sha512": "sha512-03idZOqFlsKRL4W+LuCpJ6dBYDUWReug6lZjBa3uJWnk5sPCUXckocevTaUA8iT/MFSrY/2HXkOt753xQ/cf8g==",
+      "path": "system.security.cryptography.cng/4.3.0",
+      "hashPath": "system.security.cryptography.cng.4.3.0.nupkg.sha512"
     },
     "System.Security.Cryptography.Csp/4.3.0": {
       "type": "package",
@@ -1436,12 +1388,12 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "xunit/2.5.0": {
+    "xunit/2.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-f2V5wuAdoaq0mRTt9UBmPbVex9HcwFYn+y7WaKUz5Xpakcrv7lhtQWBJUWNY4N3Z+o+atDBLyAALM1QWx04C6Q==",
-      "path": "xunit/2.5.0",
-      "hashPath": "xunit.2.5.0.nupkg.sha512"
+      "sha512": "sha512-WJJ7Ruxv1INF4ySosVZ0fN1dGhzNBEdLLZoIVn4TPU8CbYgaxUebAL/VPaBneXGT3EDE2llsJ2cKzGkGeZSY4Q==",
+      "path": "xunit/2.5.1",
+      "hashPath": "xunit.2.5.1.nupkg.sha512"
     },
     "xunit.abstractions/2.0.3": {
       "type": "package",
@@ -1450,40 +1402,40 @@
       "path": "xunit.abstractions/2.0.3",
       "hashPath": "xunit.abstractions.2.0.3.nupkg.sha512"
     },
-    "xunit.analyzers/1.2.0": {
+    "xunit.analyzers/1.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-d3dehV/DASLRlR8stWQmbPPjfYC2tct50Evav+OlsJMkfFqkhYvzO1k0s81lk0px8O0knZU/FqC8SqbXOtn+hw==",
-      "path": "xunit.analyzers/1.2.0",
-      "hashPath": "xunit.analyzers.1.2.0.nupkg.sha512"
+      "sha512": "sha512-gSk+8RC6UZ6Fzx1OHoB2bPyENeg3WHIeJhB/hb4oZNN0pW0dwOuplJay6OnqFIvW8T37re/RB4PWpEvayWIO1Q==",
+      "path": "xunit.analyzers/1.3.0",
+      "hashPath": "xunit.analyzers.1.3.0.nupkg.sha512"
     },
-    "xunit.assert/2.5.0": {
+    "xunit.assert/2.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wN84pKX5jzfpgJ0bB6arrCA/oelBeYLCpnQ9Wj5xGEVPydKzVSDY5tEatFLHE/rO0+0RC+I4H5igGE118jRh1w==",
-      "path": "xunit.assert/2.5.0",
-      "hashPath": "xunit.assert.2.5.0.nupkg.sha512"
+      "sha512": "sha512-eMvuz6PFdD3DDeaXkFVwMzNZ40zcRoM9Zz3siAyWgfiAucSNOWZnVgqC8hSHbdMd98Gy6o0yIYG6mq4Tg37rrQ==",
+      "path": "xunit.assert/2.5.1",
+      "hashPath": "xunit.assert.2.5.1.nupkg.sha512"
     },
-    "xunit.core/2.5.0": {
+    "xunit.core/2.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dnV0Mn2s1C0y2m33AylQyMkEyhBQsL4R0302kwSGiEGuY3JwzEmhTa9pnghyMRPliYSs4fXfkEAP+5bKXryGFg==",
-      "path": "xunit.core/2.5.0",
-      "hashPath": "xunit.core.2.5.0.nupkg.sha512"
+      "sha512": "sha512-Tzuz//XwPJYAmC9FBIwgBgo5gb2kSoppDwkisyYhq0wtwxhv+gOJwtqUgkgk8Hr19B616Zol03LkD18r2e4AxA==",
+      "path": "xunit.core/2.5.1",
+      "hashPath": "xunit.core.2.5.1.nupkg.sha512"
     },
-    "xunit.extensibility.core/2.5.0": {
+    "xunit.extensibility.core/2.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xRm6NIV3i7I+LkjsAJ91Xz2fxJm/oMEi2CYq1G5HlGTgcK1Zo2wNbLO6nKX1VG5FZzXibSdoLwr/MofVvh3mFA==",
-      "path": "xunit.extensibility.core/2.5.0",
-      "hashPath": "xunit.extensibility.core.2.5.0.nupkg.sha512"
+      "sha512": "sha512-XGPiWP7D/KIY/fzdmU9gx7eDt0QD0IAWOy54LI+ckLZCqFMupIFochC3dHRxykuAz+L0nYvz6PxDdR2UcgNmDw==",
+      "path": "xunit.extensibility.core/2.5.1",
+      "hashPath": "xunit.extensibility.core.2.5.1.nupkg.sha512"
     },
-    "xunit.extensibility.execution/2.5.0": {
+    "xunit.extensibility.execution/2.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7+v2Bvp+1ew1iMGQVb1glICi8jcNdHbRUX6Ru0dmJBViGdjiS7kyqcX2VxleQhFbKNi+WF0an7/TeTXD283RlQ==",
-      "path": "xunit.extensibility.execution/2.5.0",
-      "hashPath": "xunit.extensibility.execution.2.5.0.nupkg.sha512"
+      "sha512": "sha512-I5IUervdZoKLD66TUcqsJDXcB3ui9RxzKe0MQGzEi4Hsxkaoz0YylmvwqW2nd3nilyqqIAs0OUaZf/faKPxY6w==",
+      "path": "xunit.extensibility.execution/2.5.1",
+      "hashPath": "xunit.extensibility.execution.2.5.1.nupkg.sha512"
     }
   }
 }

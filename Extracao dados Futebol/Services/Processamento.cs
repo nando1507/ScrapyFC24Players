@@ -7,6 +7,12 @@ using OpenQA.Selenium.Support.UI;
 using static System.Net.WebRequestMethods;
 using Extracao_dados_Futebol.Models;
 using System;
+using System.Text;
+using System.Data;
+using System.Reflection;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 
 namespace Extracao_dados_Futebol.Services
 {
@@ -16,24 +22,39 @@ namespace Extracao_dados_Futebol.Services
         {
             using (IWebDriver driver = novoBrowser())
             {
-                //maximizar(driver);
+
                 string url = "https://www.ea.com/games/ea-sports-fc/ratings";
                 navegar(driver, url);
-                Thread.Sleep(1000);
+                maximizar(driver);
+                Thread.Sleep(500);
 
                 string local = "div.spacing_tokens__e5Cfc.fcTheme_tokens__PQ8qR section.Section_section__KHQne.dropMargins_margins___ATA0.Section_compact__9TZJq:nth-child(6) div.Pagination_paginationStyles__diVLn.Pagination_greaterThanFive__qd2wg div.Pagination_pageContainerStyles__dTV2N:nth-child(2) div.Pagination_buttonContainer__tCXJx:nth-child(11) > a.ButtonBase_outer__utJdC.ButtonBase_outlineVariant__M0jgK.ButtonBase_motion__UGbzl.Button_button__qYgy2.Button_mdSize__AZgW0.Button_fluidLayout__6_amc.Pagination_paginationButton__lTsAR";
                 int Paginas = int.Parse(driver.FindElement(By.CssSelector(local)).Text);
+
+
+                string aceitarCookies = $@"/html/body/div/div[3]/div/div/div/div[2]/button[1]";
+                var btnCookies = driver.FindElement(By.XPath(aceitarCookies));
+                btnCookies.Click();
+
                 List<FCStats> ListaJogadores = new List<FCStats>();
 
+                int rank = 1;
                 for (int i = 0; i < Paginas + 1; i++)
                 {
-                    string elementoID = "Table_rowCollapsibleCell__t3Ovl";
-                    var lista = driver.FindElements(By.ClassName(elementoID));
-                    int total = lista.Count * 2 + 1;
-                    for (int j = 1; j < lista.Count; j = j + 2)
+                    string Navegacao = $@"https://www.ea.com/games/ea-sports-fc/ratings?page={i+1}";
+                    navegar(driver, Navegacao);
+                    string elementoID = "tr";
+                    var lista = driver.FindElements(By.TagName(elementoID));
+                    int total = 10;
+                    for (int j = 1; j < 201; j += 2)
                     {
+                        if (j == 100)
+                        {
+                            Console.Clear();
+                            Console.WriteLine(j);
+                        }
                         #region dados
-                        string strRank = $@"//body/div[@id='__next']/div[@class='spacing_tokens__e5Cfc fcTheme_tokens__PQ8qR']/div[@style='background-color:var(--drop-color-neutral-1000)']/section[@class='Section_section__KHQne dropMargins_margins___ATA0 Section_compact__9TZJq']/table[@class='Table_table__C0OxY']/tbody[@class='Table_tbody__gYqSw']/tr[{j}]/td[1]/div[1]/div[1]";
+                        //string strRank = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[1]/div[1]/div[1]";
                         string strPlayerImg = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[2]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]";
                         string strName = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[2]/div[1]/div[1]/div[2]/a[1]";
                         string strPais = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[3]/a[1]/div[1]/picture[1]/img[1]";
@@ -55,17 +76,15 @@ namespace Extracao_dados_Futebol.Services
                         string StrWeakFoot = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]";
                         string strSkillMoves = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]";
                         #endregion
-                        var btnInfoAbre = $@"//html/body/div/div[2]/div/section[1]/table/tbody/tr[{j}]/td[13]/button";
-                        //html/body/div/div[2]/div/section[1]/table/tbody/tr[101]/td[13]/button
+                        #region abreSubdados
+                        string btnInfoAbre = $@"//html/body/div/div[2]/div/section[1]/table/tbody/tr[{j}]/td[13]/button";
 
-
-
-                        int ctt = (j / 2) < 0 ? 1 : (j / 2);
-                        var cliqueAbre = lista[ctt].FindElement(By.XPath(btnInfoAbre));
+                        var cliqueAbre = lista[j].FindElement(By.XPath(btnInfoAbre));
                         cliqueAbre.Click();
-
+                        #endregion
+                        #region ConverteEstrelas em Valor
                         int ContadorWeekFoot = 0;
-                        var a = (lista[(ctt)].FindElements(By.XPath(StrWeakFoot)));
+                        var a = (lista[j].FindElements(By.XPath(StrWeakFoot)));
                         for (int ae = 0; ae < a.Count; ae++)
                         {
                             var b = a[ae].FindElements(By.TagName("svg"));
@@ -85,7 +104,7 @@ namespace Extracao_dados_Futebol.Services
                         }
 
                         int ContadorSkillMoves = 0;
-                        var e = (lista[(ctt)].FindElements(By.XPath(strSkillMoves)));
+                        var e = (lista[j].FindElements(By.XPath(strSkillMoves)));
                         for (int ae = 0; ae < a.Count; ae++)
                         {
                             var f = e[ae].FindElements(By.TagName("svg"));
@@ -103,10 +122,11 @@ namespace Extracao_dados_Futebol.Services
                                 }
                             }
                         }
-
+                        #endregion
+                        #region estilos
                         string StrStylesPlus = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]";
                         List<FCStyles> fCStylesPlus = new List<FCStyles>();
-                        var StylesPlus = (lista[(ctt)].FindElements(By.XPath(StrStylesPlus)));
+                        var StylesPlus = (lista[j].FindElements(By.XPath(StrStylesPlus)));
                         foreach (var style in StylesPlus)
                         {
                             string sub = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]";
@@ -123,11 +143,11 @@ namespace Extracao_dados_Futebol.Services
 
                         string StrStyles = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]";
                         List<FCStyles> fCStyles = new List<FCStyles>();
-                        var Styles = (lista[(ctt)].FindElements(By.XPath(StrStyles)));
+                        var Styles = (lista[j].FindElements(By.XPath(StrStyles)));
                         foreach (var style in Styles)
                         {
                             string listar = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j + 1}]/td[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]";
-                            var count = lista[(ctt)].FindElements(By.XPath(listar));
+                            var count = lista[(j)].FindElements(By.XPath(listar));
                             var count2 = count[0].FindElements(By.TagName("div")).Count;
 
                             for (int iLinhas = 1; iLinhas < count2 + 1; iLinhas++)
@@ -144,7 +164,7 @@ namespace Extracao_dados_Futebol.Services
                                 );
                             }
                         }
-
+                        #endregion
                         #region Xpath Stats
                         string strPaceAcceleration = string.Empty;
                         string strPaceSprintSpeed = string.Empty;
@@ -182,8 +202,10 @@ namespace Extracao_dados_Futebol.Services
                         string strGoalkeepingReflexes = string.Empty;
 
                         #endregion
+                        #region Dados e Posições
 
-                        int PlayerRank = int.Parse(lista[j].FindElement(By.XPath(strRank)).Text);
+                        //int PlayerRank = int.Parse(lista[j].FindElement(By.XPath(strRank)).Text);
+                        int PlayerRank = rank;
                         string? PlayerName = lista[j].FindElement(By.XPath(strName)).Text;
                         string? PlayerNationality = lista[j].FindElement(By.XPath(strPais)).GetAttribute("alt");
                         string? PlayerNationalityFlagUrl = lista[j].FindElement(By.XPath(strPais)).GetAttribute("src");
@@ -205,7 +227,7 @@ namespace Extracao_dados_Futebol.Services
                         string? PlayerAttWorkRate = lista[j].FindElement(By.XPath(strAttWorkRate)).Text.Split("\n")[1];
                         string? PlayerDefWorkRate = lista[j].FindElement(By.XPath(strDefWorkRate)).Text.Split("\n")[1];
 
-
+                        #endregion
 
                         if (PlayerPosition == "GK")
                         {
@@ -303,6 +325,7 @@ namespace Extracao_dados_Futebol.Services
                             #endregion
                         }
 
+                        #region Stats
                         int GoalkeepingDiving = 0;
                         int GoalkeepingHandling = 0;
                         int GoalkeepingKicking = 0;
@@ -346,7 +369,7 @@ namespace Extracao_dados_Futebol.Services
                             GoalkeepingPositioning = int.Parse(lista[j].FindElement(By.XPath(strGoalkeepingPositioning)).Text.Split("\n")[1]);
                             GoalkeepingReflexes = int.Parse(lista[j].FindElement(By.XPath(strGoalkeepingReflexes)).Text.Split("\n")[1]);
                         }
-
+                        #endregion
                         FCStats stats = new FCStats()
                         {
                             PlayerRank = PlayerRank,
@@ -435,16 +458,16 @@ namespace Extracao_dados_Futebol.Services
                         var btnInfoFecha = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[13]/button[1]";
                         var cliqueFecha = lista[j].FindElement(By.XPath(btnInfoFecha));
                         cliqueFecha.Click();
+                        rank++;
                     }
-
-
 
                     elementoID = "//a[@class='ButtonBase_outer__utJdC ButtonBase_outlineVariant__M0jgK ButtonBase_motion__UGbzl IconButton_square__Zk_96 IconButton_sizemd__FssAF IconButton_circle__4eVcH']";
                     var ProximaPagina = driver.FindElement(By.XPath(elementoID));
                     ProximaPagina.Click();
 
                 }
-
+                ToJson($@"C:\Temp\DatasetFifa.Json", ListaJogadores);
+                //ToCSV($@"C:\Temp\DatasetFifa.CSV",";", ListaJogadores);
                 closeBrowser(driver);
             }
         }
@@ -506,6 +529,60 @@ namespace Extracao_dados_Futebol.Services
                 Console.WriteLine($"Erro: {ex.Message}");
                 return false;
             }
+        }
+        void ToJson<T>(string NomeArquivo, List<T> Parametros)
+        {
+            using (StreamWriter sw = new StreamWriter(NomeArquivo, false, Encoding.UTF8))
+            {
+                string json = JsonSerializer.Serialize(Parametros);
+                sw.AutoFlush = true;
+                sw.Write(json);
+                sw.Flush();
+            }
+        }
+
+        void ToCSV<T>(string NomeArquivo, string Delimitador, List<T> Parametros)
+        {
+            using (StreamWriter sw = new StreamWriter(NomeArquivo, false, Encoding.UTF8))
+            {
+                sw.AutoFlush = true;
+                string header = string.Empty;
+                foreach (PropertyInfo info in typeof(T).GetProperties())
+                {
+                    header += info.Name + Delimitador;
+                }
+                sw.WriteLine(header);
+
+                foreach (T paramers in Parametros)
+                {
+                    string linha = string.Empty;
+                    foreach (PropertyInfo info in typeof(T).GetProperties())
+                    {
+                        linha += info.GetValue(paramers, null) + Delimitador;
+                    }
+                    sw.WriteLine(linha);
+                }
+            }
+        }
+        public static DataTable ListToDataTable<T>(List<T> list)
+        {
+            // Console.Clear();
+            DataTable dt = new DataTable();
+
+            foreach (PropertyInfo info in typeof(T).GetProperties())
+            {
+                dt.Columns.Add(new DataColumn(info.Name, info.PropertyType));
+            }
+            foreach (T t in list)
+            {
+                DataRow row = dt.NewRow();
+                foreach (PropertyInfo info in typeof(T).GetProperties())
+                {
+                    row[info.Name] = info.GetValue(t, null);
+                }
+                dt.Rows.Add(row);
+            }
+            return dt;
         }
     }
 }
