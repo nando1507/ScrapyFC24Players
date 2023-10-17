@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4ndw+8dnuKLgOBlVn4afEOGF8WVtaEuOl2ZMNaH/0uTKRAAfbYLit2U/crOsDAmdQXmI7M7hot0wkgru4si9PQ==",
+  "dgSpecHash": "4lw9pqtprLOt8jFqyLMZr16QUbbWN/o8ABJvM21b2hQg1ffHaraq9SbG5yUY+wBzDkL4R4SWhItsW7iUH2qEmg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nando\\source\\repos\\Extracao dados Futebol\\Extracao dados Futebol\\Extracao dados Futebol.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "C:\\Users\\nando\\.nuget\\packages\\selenium.support\\4.14.0\\selenium.support.4.14.0.nupkg.sha512",
     "C:\\Users\\nando\\.nuget\\packages\\selenium.webdriver\\4.14.0\\selenium.webdriver.4.14.0.nupkg.sha512",
     "C:\\Users\\nando\\.nuget\\packages\\selenium.webdriver.chromedriver\\118.0.5993.7000\\selenium.webdriver.chromedriver.118.0.5993.7000.nupkg.sha512",
+    "C:\\Users\\nando\\.nuget\\packages\\selenium.webdriverbackedselenium\\4.1.0\\selenium.webdriverbackedselenium.4.1.0.nupkg.sha512",
     "C:\\Users\\nando\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\nando\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\nando\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

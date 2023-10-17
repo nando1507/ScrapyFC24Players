@@ -13,6 +13,8 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using OpenQA.Selenium.Support.Extensions;
+using System.IO;
 
 namespace Extracao_dados_Futebol.Services
 {
@@ -22,10 +24,10 @@ namespace Extracao_dados_Futebol.Services
         {
             using (IWebDriver driver = novoBrowser())
             {
-
+                string caminhoPaginas = $@"D:\Paginas EA FC 24\";
                 string url = "https://www.ea.com/games/ea-sports-fc/ratings";
                 navegar(driver, url);
-                maximizar(driver);
+                //maximizar(driver);
                 Thread.Sleep(500);
 
                 string local = "div.spacing_tokens__e5Cfc.fcTheme_tokens__PQ8qR section.Section_section__KHQne.dropMargins_margins___ATA0.Section_compact__9TZJq:nth-child(6) div.Pagination_paginationStyles__diVLn.Pagination_greaterThanFive__qd2wg div.Pagination_pageContainerStyles__dTV2N:nth-child(2) div.Pagination_buttonContainer__tCXJx:nth-child(11) > a.ButtonBase_outer__utJdC.ButtonBase_outlineVariant__M0jgK.ButtonBase_motion__UGbzl.Button_button__qYgy2.Button_mdSize__AZgW0.Button_fluidLayout__6_amc.Pagination_paginationButton__lTsAR";
@@ -35,24 +37,40 @@ namespace Extracao_dados_Futebol.Services
                 string aceitarCookies = $@"/html/body/div/div[3]/div/div/div/div[2]/button[1]";
                 var btnCookies = driver.FindElement(By.XPath(aceitarCookies));
                 btnCookies.Click();
+                        
+                DirectoryInfo dir = new DirectoryInfo(caminhoPaginas);
+                var Files = dir.GetFiles("*", SearchOption.TopDirectoryOnly);
+
 
                 List<FCStats> ListaJogadores = new List<FCStats>();
 
                 int rank = 1;
-                for (int i = 0; i < Paginas + 1; i++)
+                for (int i = 1; i < Paginas + 1; i++)
                 {
-                    string Navegacao = $@"https://www.ea.com/games/ea-sports-fc/ratings?page={i+1}";
+
+                    //string Navegacao = $@"{Files[i].FullName}";
+                    //string Navegacao = $@"D:\Paginas EA FC 24\EAFC24_player_ratings_database1.htm";
+                    string Navegacao = $@"https://www.ea.com/games/ea-sports-fc/ratings?page={i}";
+
                     navegar(driver, Navegacao);
+
+                    var page = driver.PageSource;
+
+                 
                     string elementoID = "tr";
+
+
                     var lista = driver.FindElements(By.TagName(elementoID));
                     int total = 10;
                     for (int j = 1; j < 201; j += 2)
                     {
-                        if (j == 100)
-                        {
-                            Console.Clear();
-                            Console.WriteLine(j);
-                        }
+                        Console.Clear();
+                        Console.WriteLine($"pagina: {i} Registro: {rank}");
+                        //if (j == 100)
+                        //{
+                        //    Console.Clear();
+                        //    Console.WriteLine(j);
+                        //}
                         #region dados
                         //string strRank = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[1]/div[1]/div[1]";
                         string strPlayerImg = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[2]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]";
@@ -96,10 +114,7 @@ namespace Extracao_dados_Futebol.Services
                                 {
                                     ContadorWeekFoot++;
                                 }
-                                else if (d.Contains("M5.28564"))
-                                {
-
-                                }
+                                else if (d.Contains("M5.28564")) { }
                             }
                         }
 
@@ -331,7 +346,6 @@ namespace Extracao_dados_Futebol.Services
                         int GoalkeepingKicking = 0;
                         int GoalkeepingPositioning = 0;
                         int GoalkeepingReflexes = 0;
-                        //var teste = lista[j].FindElement(By.XPath(strPaceAcceleration)).Text.Split("\n")[1];
                         int PaceAcceleration = int.Parse(lista[j].FindElement(By.XPath(strPaceAcceleration)).Text.Split("\n")[1]);
                         int PaceSprintSpeed = int.Parse(lista[j].FindElement(By.XPath(strPaceSprintSpeed)).Text.Split("\n")[1]);
                         int ShootPositioning = int.Parse(lista[j].FindElement(By.XPath(strShootPositioning)).Text.Split("\n")[1]);
@@ -461,9 +475,9 @@ namespace Extracao_dados_Futebol.Services
                         rank++;
                     }
 
-                    elementoID = "//a[@class='ButtonBase_outer__utJdC ButtonBase_outlineVariant__M0jgK ButtonBase_motion__UGbzl IconButton_square__Zk_96 IconButton_sizemd__FssAF IconButton_circle__4eVcH']";
-                    var ProximaPagina = driver.FindElement(By.XPath(elementoID));
-                    ProximaPagina.Click();
+                    //elementoID = "//a[@class='ButtonBase_outer__utJdC ButtonBase_outlineVariant__M0jgK ButtonBase_motion__UGbzl IconButton_square__Zk_96 IconButton_sizemd__FssAF IconButton_circle__4eVcH']";
+                    //var ProximaPagina = driver.FindElement(By.XPath(elementoID));
+                    //ProximaPagina.Click();
 
                 }
                 ToJson($@"C:\Temp\DatasetFifa.Json", ListaJogadores);
@@ -482,7 +496,7 @@ namespace Extracao_dados_Futebol.Services
         private ChromeDriver novoBrowser()
         {
             Uri origin = new Uri($@"https://chromedriver.chromium.org/downloads");
-            TimeSpan time = TimeSpan.FromSeconds(60);
+            TimeSpan time = TimeSpan.FromSeconds(20);
 
             ChromeVersion driver = new ChromeVersion();
             ChromeOptionsInternal chromeOptions = new ChromeOptionsInternal(true);

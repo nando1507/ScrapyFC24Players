@@ -343,6 +343,18 @@
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
       },
+      "Selenium.WebDriverBackedSelenium/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.1.0"
+        },
+        "compile": {
+          "lib/net5.0/Selenium.WebDriverBackedSelenium.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Selenium.WebDriverBackedSelenium.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1923,6 +1935,25 @@
         "nupkg-icon.png",
         "selenium.webdriver.chromedriver.118.0.5993.7000.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriverBackedSelenium/4.1.0": {
+      "sha512": "tQ9iDx/oo4gl1N5JFz1YrwuxYz7XA8pgkiqyUvED6xUFhQualUzgWlfjymhPwdBx5uRYAJWro6w063Yt2P3Y4g==",
+      "type": "package",
+      "path": "selenium.webdriverbackedselenium/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/icon.png",
+        "lib/net45/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net46/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net47/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net48/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net5.0/Selenium.WebDriverBackedSelenium.dll",
+        "lib/netstandard2.0/Selenium.WebDriverBackedSelenium.dll",
+        "lib/netstandard2.1/Selenium.WebDriverBackedSelenium.dll",
+        "selenium.webdriverbackedselenium.4.1.0.nupkg.sha512",
+        "selenium.webdriverbackedselenium.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -5050,6 +5081,7 @@
       "Selenium.Support >= 4.14.0",
       "Selenium.WebDriver >= 4.14.0",
       "Selenium.WebDriver.ChromeDriver >= 118.0.5993.7000",
+      "Selenium.WebDriverBackedSelenium >= 4.1.0",
       "xunit >= 2.5.1"
     ]
   },
@@ -5113,6 +5145,10 @@
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
             "version": "[118.0.5993.7000, )"
+          },
+          "Selenium.WebDriverBackedSelenium": {
+            "target": "Package",
+            "version": "[4.1.0, )"
           },
           "xunit": {
             "target": "Package",

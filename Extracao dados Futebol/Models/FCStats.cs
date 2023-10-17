@@ -23,10 +23,8 @@
         public int PlayerDribbling { get; set; }
         public int PlayerDefending { get; set; }
         public int PlayerPhysicality { get; set; }
-
         public List<FCStyles> PlayStylesPlus { get; set; }
         public List<FCStyles> PlayStyles { get; set; }
-
         public FCStatsPace StatsPace { get; set; }
         public FCStatsShooting StatsShooting { get; set; }
         public FCStatsPassing StatsPassing { get; set; }

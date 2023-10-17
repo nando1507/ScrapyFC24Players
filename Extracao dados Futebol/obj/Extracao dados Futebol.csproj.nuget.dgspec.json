@@ -61,6 +61,10 @@
               "target": "Package",
               "version": "[118.0.5993.7000, )"
             },
+            "Selenium.WebDriverBackedSelenium": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "xunit": {
               "target": "Package",
               "version": "[2.5.1, )"

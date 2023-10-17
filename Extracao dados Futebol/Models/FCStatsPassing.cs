@@ -8,5 +8,9 @@
         public int ShotPassing { get; set; }
         public int LongPassing { get; set; }
         public int Curve { get; set; }
+        public override string ToString()
+        {
+            return $@"{nameof(Vision)} : {Vision}, {nameof(Crossing)} : {Crossing}, {nameof(FreeKickAccuracy)} : {FreeKickAccuracy}, {nameof(ShotPassing)} : {ShotPassing}, {nameof(LongPassing)} : {LongPassing}, {nameof(Curve)} : {Curve}";
+        }
     }
 }

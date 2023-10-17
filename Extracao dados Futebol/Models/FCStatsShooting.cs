@@ -1,4 +1,6 @@
-﻿namespace Extracao_dados_Futebol.Models
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Extracao_dados_Futebol.Models
 {
     public class FCStatsShooting
     {
@@ -8,5 +10,10 @@
         public int LongShots { get; set; }
         public int Volleys { get; set; }
         public int Penalties { get; set; }
+
+        public override string ToString()
+        {
+            return $@"{nameof(Positioning)} : {Positioning}, {nameof(Finishing)} : {Finishing}, {nameof(ShotPower)} : {ShotPower}, {nameof(LongShots)} : {LongShots}, {nameof(Volleys)} : {Volleys}, {nameof(Penalties)} : {Penalties}";
+        }
     }
 }

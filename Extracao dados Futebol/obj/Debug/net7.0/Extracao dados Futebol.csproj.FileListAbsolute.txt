@@ -29,3 +29,4 @@ C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\De
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\System.Drawing.Common.dll
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+C:\Users\nando\source\repos\Extracao dados Futebol\Extracao dados Futebol\bin\Debug\net7.0\Selenium.WebDriverBackedSelenium.dll

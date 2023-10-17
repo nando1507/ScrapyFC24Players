@@ -32,7 +32,11 @@ namespace Extracao_dados_Futebol.Constants
             options.AddArguments("--disable-in-process-stack-traces");
             options.AddArguments("--disable-logging");
             options.AddArguments("--disable-dev-shm-usage");
-            options.AddArguments("--log-level=2");
+            options.AddArguments("--log-level=0");          
+            
+            options.AddArguments("---no-sandbox");
+            options.AddArguments("--enable-automation");
+            options.AddArguments("--window-position=0,0");
             //options.AddArgument("--output=/dev/null");
             return options;
         }
