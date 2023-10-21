@@ -37,6 +37,7 @@ namespace Extracao_dados_Futebol.Constants
             options.AddArguments("---no-sandbox");
             options.AddArguments("--enable-automation");
             options.AddArguments("--window-position=0,0");
+            options.PageLoadStrategy = PageLoadStrategy.Eager;
             //options.AddArgument("--output=/dev/null");
             return options;
         }

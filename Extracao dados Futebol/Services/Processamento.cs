@@ -37,9 +37,9 @@ namespace Extracao_dados_Futebol.Services
                 string aceitarCookies = $@"/html/body/div/div[3]/div/div/div/div[2]/button[1]";
                 var btnCookies = driver.FindElement(By.XPath(aceitarCookies));
                 btnCookies.Click();
-                        
-                DirectoryInfo dir = new DirectoryInfo(caminhoPaginas);
-                var Files = dir.GetFiles("*", SearchOption.TopDirectoryOnly);
+
+                //DirectoryInfo dir = new DirectoryInfo(caminhoPaginas);
+                //var Files = dir.GetFiles("*", SearchOption.TopDirectoryOnly);
 
 
                 List<FCStats> ListaJogadores = new List<FCStats>();
@@ -47,6 +47,15 @@ namespace Extracao_dados_Futebol.Services
                 int rank = 1;
                 for (int i = 1; i < Paginas + 1; i++)
                 {
+                    // Create an instance of IJavaScriptExecutor
+                    IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+
+                    // Disable JavaScript
+                    //js.ExecuteScript("Object.defineProperty(window, 'disableJavaScript', { value: function() { window.eval = function() {}; } });");
+                    js.ExecuteScript(@"return document.readyState");
+
+                    // Refresh the page, and JavaScript is disabled
+                    driver.Navigate().Refresh();
 
                     //string Navegacao = $@"{Files[i].FullName}";
                     //string Navegacao = $@"D:\Paginas EA FC 24\EAFC24_player_ratings_database1.htm";
@@ -54,10 +63,11 @@ namespace Extracao_dados_Futebol.Services
 
                     navegar(driver, Navegacao);
 
-                    var page = driver.PageSource;
+                    //var page = driver.PageSource;
 
-                 
+
                     string elementoID = "tr";
+
 
 
                     var lista = driver.FindElements(By.TagName(elementoID));
@@ -66,13 +76,8 @@ namespace Extracao_dados_Futebol.Services
                     {
                         Console.Clear();
                         Console.WriteLine($"pagina: {i} Registro: {rank}");
-                        //if (j == 100)
-                        //{
-                        //    Console.Clear();
-                        //    Console.WriteLine(j);
-                        //}
-                        #region dados
-                        //string strRank = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[1]/div[1]/div[1]";
+
+                        #region dados                        
                         string strPlayerImg = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[2]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]";
                         string strName = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[2]/div[1]/div[1]/div[2]/a[1]";
                         string strPais = $@"/html[1]/body[1]/div[1]/div[2]/div[1]/section[1]/table[1]/tbody[1]/tr[{j}]/td[3]/a[1]/div[1]/picture[1]/img[1]";
@@ -409,8 +414,8 @@ namespace Extracao_dados_Futebol.Services
                             PlayerDefWorkRate = PlayerDefWorkRate,
                             PlayerSkillMoves = ContadorSkillMoves,
                             PlayerWeakFoot = ContadorWeekFoot,
-                            PlayStyles = fCStylesPlus,
-                            PlayStylesPlus = fCStyles,
+                            PlayStyles = fCStyles,
+                            PlayStylesPlus = fCStylesPlus,
                             StatsPace = new FCStatsPace()
                             {
                                 Acceleration = PaceAcceleration,
@@ -536,6 +541,9 @@ namespace Extracao_dados_Futebol.Services
             try
             {
                 driver.Navigate().GoToUrl(url);
+                driver.ExecuteJavaScript<string>("window.stop();");
+                driver.ExecuteJavaScript<string>(string.Format("setTimeout(function() {{ location.href = \"{0}\" }}, 150);", url));
+                driver.ExecuteJavaScript<string>("return document.readyState");
                 return true;
             }
             catch (Exception ex)
@@ -544,6 +552,8 @@ namespace Extracao_dados_Futebol.Services
                 return false;
             }
         }
+
+
         void ToJson<T>(string NomeArquivo, List<T> Parametros)
         {
             using (StreamWriter sw = new StreamWriter(NomeArquivo, false, Encoding.UTF8))
@@ -570,6 +580,7 @@ namespace Extracao_dados_Futebol.Services
                 foreach (T paramers in Parametros)
                 {
                     string linha = string.Empty;
+                    
                     foreach (PropertyInfo info in typeof(T).GetProperties())
                     {
                         linha += info.GetValue(paramers, null) + Delimitador;
@@ -578,6 +589,31 @@ namespace Extracao_dados_Futebol.Services
                 }
             }
         }
+
+        void ToCSV(string NomeArquivo, string Delimitador, DataTable dt)
+        {
+            using (StreamWriter sw = new StreamWriter(NomeArquivo, false, Encoding.UTF8))
+            {
+                sw.AutoFlush = true;
+                //header
+                StringBuilder builderHeader = new StringBuilder();
+                string[] columnNames = dt.Columns.Cast<DataColumn>().Select(s => s.ColumnName).ToArray();
+
+                builderHeader.AppendLine(string.Join(Delimitador, columnNames));
+                sw.WriteLine(builderHeader.ToString());
+
+                //corpo
+                StringBuilder builderBody = new StringBuilder();
+                foreach (DataRow row in dt.Rows)
+                {
+                    builderBody.AppendLine(string.Join(Delimitador, row.ItemArray));
+                }
+                sw.WriteLine(builderBody.ToString());
+                sw.Flush();
+                sw.Close();
+            }
+        }
+
         public static DataTable ListToDataTable<T>(List<T> list)
         {
             // Console.Clear();
